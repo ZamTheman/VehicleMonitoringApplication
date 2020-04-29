@@ -1,0 +1,7 @@
+echo "Stopping db"
+sudo docker stop vehicledb
+echo "Deleting container"
+sudo docker rm vehicledb
+echo "Deleting network"
+sudo docker network rm alten-vehicle-network
+

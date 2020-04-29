@@ -1,0 +1,7 @@
+echo "Creating network"
+sudo docker network create -d bridge alten-vehicle-network
+echo "Creating db"
+sudo docker build ../DB/ --tag populated-db
+sudo docker run -d --rm --name vehicledb populated-db
+echo "Connecting db container to network"
+sudo docker network connect alten-vehicle-network vehicledb
