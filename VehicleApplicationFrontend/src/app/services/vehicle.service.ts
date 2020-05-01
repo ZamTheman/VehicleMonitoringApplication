@@ -13,22 +13,17 @@ export class VehicleService {
 
   constructor(private http: HttpClient) { }
 
-  private companies;
+  private companies: ICompany[];
   private vehicles: IVehicle[];
   private vehicleInfos: IVehicleInfo[];
   private completedRequest;
+  private millisecondsStillOnline: number = 90000;
 
   getVehicles(): void {
     this.completedRequest = [false, false];
     this.requestGetCompanies().subscribe(
       data => {
-        const mappedCompanies: { [id: number]: string} = {};
-
-        for (const company of data){
-          mappedCompanies[company.Id] = company.Name;
-        }
-
-        this.companies = mappedCompanies;
+        this.companies = data;
 
         if (this.completedRequest[1]){
           this.mapData();
@@ -51,15 +46,25 @@ export class VehicleService {
     );
   }
 
+  private getCompanyNameById(id: number): string{
+    for (const company of this.companies){
+      if (company.id === id){
+        return company.name;
+      }
+    }
+  }
+
   private mapData(){
     const newVehicleInfos: IVehicleInfo[] = [];
     for (const vehicle of this.vehicles){
+      const timePassed = new Date(vehicle.lastCommunicated).getTime() - new Date().getTime();
+      const online = timePassed < this.millisecondsStillOnline;
       newVehicleInfos.push({
-        company: this.companies[vehicle.CompanyId],
-        vin: vehicle.Vin,
-        regnumber: vehicle.RegistrationNumber,
-        status: 'online',
-        lastCommunication: vehicle.LastCommunicated
+        company: this.getCompanyNameById(vehicle.companyId),
+        vin: vehicle.vin,
+        regnumber: vehicle.registrationNumber,
+        status: online ? 'online' : 'offline',
+        lastCommunication: vehicle.lastCommunicated
       });
     }
 
@@ -76,8 +81,3 @@ export class VehicleService {
     return this.http.get<IVehicle[]>('/api/vehicles');
   }
 }
-
-const tempData: IVehicleInfo[] = [
-  { company: 'myCompany', vin: '12345', regnumber: '23456', status: 'offline', lastCommunication: new Date() },
-  { company: 'myOtherCompany', vin: '56789', regnumber: '78945', status: 'online', lastCommunication: new Date() },
-];

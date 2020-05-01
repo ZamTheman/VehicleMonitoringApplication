@@ -1,6 +1,6 @@
 export interface IVehicle {
-    CompanyId: number;
-    Vin: string;
-    RegistrationNumber: string;
-    LastCommunicated: Date;
+    companyId: number;
+    vin: string;
+    registrationNumber: string;
+    lastCommunicated: Date;
   }
