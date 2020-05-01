@@ -149,5 +149,8 @@
       }
     }
   },
-  "defaultProject": "vehicle-application-frontend"
+  "defaultProject": "vehicle-application-frontend",
+  "cli": {
+    "analytics": "b7fdb83f-1880-4a4d-a680-55e0f241125e"
+  }
 }
