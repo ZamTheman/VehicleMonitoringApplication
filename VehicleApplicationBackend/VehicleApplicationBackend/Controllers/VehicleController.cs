@@ -24,9 +24,9 @@ namespace VehicleApplicationBackend.Controllers
 
 
         [HttpPost]
-        public bool Vehicles(string Vin)
+        public void Vehicles([FromBody] string vin)
         {
-            return true;
+            vehicleService.UpdateVehicleConnectionStatusByVin(vin);
         }
     }
 }

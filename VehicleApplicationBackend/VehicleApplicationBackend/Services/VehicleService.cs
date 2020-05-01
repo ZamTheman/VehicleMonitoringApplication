@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using VehicleApplicationBackend.Dto;
 using VehicleApplicationBackend.Repositories;
 
@@ -14,5 +15,7 @@ namespace VehicleApplicationBackend.Services
         }
 
         public List<Vehicle> GetAllVehicles() => vehicleRepository.GetAllVehicles();
+
+        public void UpdateVehicleConnectionStatusByVin(string vin) => vehicleRepository.UpdateVehicleConnectionStatusByVin(DateTime.Now, vin);
     }
 }

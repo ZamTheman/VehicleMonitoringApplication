@@ -1,0 +1,164 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend.Tests\\VehicleApplicationBackend.Tests.csproj": {}
+  },
+  "projects": {
+    "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend.Tests\\VehicleApplicationBackend.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend.Tests\\VehicleApplicationBackend.Tests.csproj",
+        "projectName": "VehicleApplicationBackend.Tests",
+        "projectPath": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend.Tests\\VehicleApplicationBackend.Tests.csproj",
+        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
+        "outputPath": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\VehicleApplicationBackend.csproj": {
+                "projectPath": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\VehicleApplicationBackend.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.0-preview-20200428-01, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.14.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.17.0-beta.1, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\VehicleApplicationBackend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\VehicleApplicationBackend.csproj",
+        "projectName": "VehicleApplicationBackend",
+        "projectPath": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\VehicleApplicationBackend.csproj",
+        "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
+        "outputPath": "E:\\git\\Alten\\VehicleMontoringApplication\\VehicleMonitoringApplication\\VehicleApplicationBackend\\VehicleApplicationBackend\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Samuel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.35, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[5.0.0-preview.3.20215.2, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.8, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
