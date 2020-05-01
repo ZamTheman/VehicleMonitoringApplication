@@ -69,11 +69,11 @@ export class VehicleService {
   }
 
   private requestGetCompanies(){
-    return this.http.get<ICompany[]>('localhost:50449/api/companies');
+    return this.http.get<ICompany[]>('/api/companies');
   }
 
   private requestGetVehicles(){
-    return this.http.get<IVehicle[]>('localhost:50449/api/vehicles');
+    return this.http.get<IVehicle[]>('/api/vehicles');
   }
 }
 
