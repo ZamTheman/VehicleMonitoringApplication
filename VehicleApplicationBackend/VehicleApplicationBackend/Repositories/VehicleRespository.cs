@@ -10,7 +10,7 @@ namespace VehicleApplicationBackend.Repositories
     {
         public List<Vehicle> GetAllVehicles()
         {
-            var sql = "SELECT * FROM Vehicle";
+            var sql = "SELECT * FROM vehicle";
 
             using (var con = new MySqlConnection(Settings.ConnectionString))
             {
