@@ -4,3 +4,7 @@ VehicleMonitorBackend/VehicleMonitorBackend/VehicleMonitorBackend.API.Common/obj
 VehicleApplicationBackend/.vs/
 VehicleApplicationBackend/VehicleApplicationBackend/bin/
 VehicleApplicationBackend/VehicleApplicationBackend/obj/
+VehicleSimulator/VehicleSimulator/.vs/VehicleSimulator/v16/Server/sqlite3/db.lock
+VehicleSimulator/VehicleSimulator/.vs/
+VehicleSimulator/VehicleSimulator/VehicleSimulator/bin/
+VehicleSimulator/VehicleSimulator/VehicleSimulator/obj/
