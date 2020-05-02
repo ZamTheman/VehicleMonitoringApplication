@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using VehicleApplicationBackend.Controllers;
 using VehicleApplicationBackend.Dto;
 using VehicleApplicationBackend.Services;
+using Microsoft.Extensions.Logging;
 
 namespace VehicleApplicationBackend.Tests.Controllers
 {
@@ -22,7 +23,9 @@ namespace VehicleApplicationBackend.Tests.Controllers
                         new Company { Id = 1, City = "Västerås", Name = "MyCoolCompany", PostalCode = 11111, Street = "MyCoolStreet" },
                         new Company { Id = 2, City = "Örebro", Name = "MyNotSoCoolCompany", PostalCode = 22222, Street = "MyNotSoCoolStreet" }
                     });
-            var controller = new CompanyController(mockService.Object);
+            var mockLogger = new Mock<ILogger<CompanyController>>();
+            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
+            var controller = new CompanyController(mockService.Object, mockLogger.Object);
 
             var result = controller.Companies();
 

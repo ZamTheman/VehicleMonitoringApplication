@@ -8,3 +8,8 @@ VehicleSimulator/VehicleSimulator/.vs/VehicleSimulator/v16/Server/sqlite3/db.loc
 VehicleSimulator/VehicleSimulator/.vs/
 VehicleSimulator/VehicleSimulator/VehicleSimulator/bin/
 VehicleSimulator/VehicleSimulator/VehicleSimulator/obj/
+VehicleApplicationBackend/VehicleApplicationBackend.Tests/bin/
+VehicleApplicationBackend/VehicleApplicationBackend.Tests/obj/
+.fake
+.ionide
+.vscode

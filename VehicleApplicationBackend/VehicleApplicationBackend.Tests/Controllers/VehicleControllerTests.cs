@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using VehicleApplicationBackend.Services;
 using VehicleApplicationBackend.Dto;
 using VehicleApplicationBackend.Controllers;
+using Microsoft.Extensions.Logging;
 
 namespace VehicleApplicationBackend.Tests.Controlllers
 {
@@ -23,7 +24,9 @@ namespace VehicleApplicationBackend.Tests.Controlllers
                         new Vehicle { Vin = "MyVin1", RegistrationNumber = "MyReg1", CompanyId = 1, LastCommunicated = DateTime.Now },
                         new Vehicle { Vin = "MyVin2", RegistrationNumber = "MyReg2", CompanyId = 2, LastCommunicated = DateTime.Now }
                     });
-            var controller = new VehicleController(mockService.Object);
+            var mockLogger = new Mock<ILogger<CompanyController>>();
+            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
+            var controller = new VehicleController(mockService.Object, mockLogger.Object);
 
             var result = controller.Vehicles();
 
@@ -40,7 +43,9 @@ namespace VehicleApplicationBackend.Tests.Controlllers
             var mockService = new Mock<IVehicleService>();
             mockService
                 .Setup(service => service.UpdateVehicleConnectionStatusByVin("TestVin"));
-            var controller = new VehicleController(mockService.Object);
+            var mockLogger = new Mock<ILogger<CompanyController>>();
+            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
+            var controller = new VehicleController(mockService.Object, mockLogger.Object);
 
             controller.Vehicles("TestVin");
         }

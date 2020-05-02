@@ -25,7 +25,7 @@ namespace VehicleApplicationBackend
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IVehicleService, VehicleService>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
-            services.AddScoped<IVehicleRepository, VehicleRespository>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
