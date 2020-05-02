@@ -11,6 +11,10 @@ City varchar(50),
 PRIMARY KEY(Id)
 );
 
+ALTER TABLE company MODIFY Name varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
+ALTER TABLE company MODIFY Street varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
+ALTER TABLE company MODIFY City varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
+
 INSERT INTO company
 VALUES
 (1, 'Kalles Grustransporter AB', 'Cementvägen 8', 11111, 'Södertälje'),

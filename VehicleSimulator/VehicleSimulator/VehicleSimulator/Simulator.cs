@@ -59,7 +59,7 @@ namespace VehicleSimulator
 
             foreach (var vin in Vins)
             {
-                if (random.Next(5) = 4)
+                if (random.Next(5) == 4)
                     continue;
 
                 var request = new HttpRequestMessage(HttpMethod.Post, url);
