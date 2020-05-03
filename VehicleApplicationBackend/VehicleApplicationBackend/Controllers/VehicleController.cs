@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using VehicleApplicationBackend.Dto;
+using VehicleApplicationBackend.ResponseObjects;
 using VehicleApplicationBackend.Services;
 
 namespace VehicleApplicationBackend.Controllers
@@ -20,7 +20,7 @@ namespace VehicleApplicationBackend.Controllers
         }
 
         [HttpGet]
-        public List<Vehicle> Vehicles()
+        public List<ResponseVehicle> Vehicles()
         {
             logger.LogInformation("All vehicles requested");
             return vehicleService.GetAllVehicles();

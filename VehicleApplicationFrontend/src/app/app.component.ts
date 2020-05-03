@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'vehicle-application-frontend';
   columns = ['company', 'vin', 'regnumber', 'status', 'lastCommunication'];
   dataChanged: Subscription;
+  timeout;
   dataSource;
 
   constructor(private vehicleService: VehicleService) {}
@@ -21,6 +22,9 @@ export class AppComponent implements OnInit {
     this.dataChanged = this.vehicleService.dataChanged.subscribe(
       value => this.dataSource = new MatTableDataSource(value)
     );
+    
+    this.timeout = setInterval(() => this.vehicleService.getVehicles(), 20000);
+
     this.vehicleService.getVehicles();
   }
 

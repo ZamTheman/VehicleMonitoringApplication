@@ -57,14 +57,15 @@ export class VehicleService {
   private mapData(){
     const newVehicleInfos: IVehicleInfo[] = [];
     for (const vehicle of this.vehicles){
-      const timePassed = new Date(vehicle.lastCommunicated).getTime() - new Date().getTime();
+      const utcDate = new Date(vehicle.lastCommunicated);
+      const timePassed = new Date().getTime() - utcDate.getTime();
       const online = timePassed < this.millisecondsStillOnline;
       newVehicleInfos.push({
         company: this.getCompanyNameById(vehicle.companyId),
         vin: vehicle.vin,
         regnumber: vehicle.registrationNumber,
         status: online ? 'online' : 'offline',
-        lastCommunication: vehicle.lastCommunicated
+        lastCommunication: utcDate
       });
     }
 

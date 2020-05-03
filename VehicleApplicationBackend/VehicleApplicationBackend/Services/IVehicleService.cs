@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using VehicleApplicationBackend.Dto;
+using VehicleApplicationBackend.ResponseObjects;
 
 namespace VehicleApplicationBackend.Services
 {
     public interface IVehicleService
     {
-        List<Vehicle> GetAllVehicles();
+        List<ResponseVehicle> GetAllVehicles();
 
         void UpdateVehicleConnectionStatusByVin(string vin);
     }

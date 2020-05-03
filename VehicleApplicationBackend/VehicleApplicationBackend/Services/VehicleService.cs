@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using VehicleApplicationBackend.Dto;
 using VehicleApplicationBackend.Repositories;
+using VehicleApplicationBackend.ResponseObjects;
 
 namespace VehicleApplicationBackend.Services
 {
@@ -14,8 +14,23 @@ namespace VehicleApplicationBackend.Services
             this.vehicleRepository = vehicleRepository;
         }
 
-        public List<Vehicle> GetAllVehicles() => vehicleRepository.GetAllVehicles();
+        public List<ResponseVehicle> GetAllVehicles() {
+            var vehicles = vehicleRepository.GetAllVehicles();
+            var responseVechicles = new List<ResponseVehicle>();
+            foreach (var vehicle in vehicles){
+                responseVechicles.Add(
+                    new ResponseVehicle {
+                        Vin = vehicle.Vin,
+                        RegistrationNumber = vehicle.RegistrationNumber,
+                        CompanyId = vehicle.CompanyId,
+                        LastCommunicated = vehicle.LastCommunicated.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds
+                    }
+                );
+            }
 
-        public void UpdateVehicleConnectionStatusByVin(string vin) => vehicleRepository.UpdateVehicleConnectionStatusByVin(DateTime.Now, vin);
+            return responseVechicles;
+        }
+
+        public void UpdateVehicleConnectionStatusByVin(string vin) => vehicleRepository.UpdateVehicleConnectionStatusByVin(DateTime.UtcNow, vin);
     }
 }

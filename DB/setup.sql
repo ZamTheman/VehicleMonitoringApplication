@@ -4,16 +4,12 @@ USE vehicledb;
 
 CREATE TABLE company(
 Id int,
-Name varchar(50),
-Street varchar(50),
+Name char(50),
+Street char(50),
 PostalCode int,
-City varchar(50),
+City char(50),
 PRIMARY KEY(Id)
-);
-
-ALTER TABLE company MODIFY Name varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
-ALTER TABLE company MODIFY Street varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
-ALTER TABLE company MODIFY City varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci;
+) DEFAULT CHARACTER SET utf8 COLLATE utf8_swedish_ci;
 
 INSERT INTO company
 VALUES
@@ -22,9 +18,9 @@ VALUES
 (3, 'Haralds Värdetransporter AB', 'Budgetvägen 1', 33333, 'Uppsala');
 
 CREATE TABLE vehicle(
-Vin varchar(50),
+Vin char(50),
 CompanyId int,
-RegistrationNumber varchar(10),
+RegistrationNumber char(10),
 LastCommunicated datetime,
 PRIMARY KEY(Vin),
 FOREIGN KEY(CompanyId) REFERENCES company(Id)
