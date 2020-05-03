@@ -7,3 +7,7 @@
     width: 150px;
     padding: 10px;
 }
+
+.is-offline{
+    background: #eed6d6;
+}
