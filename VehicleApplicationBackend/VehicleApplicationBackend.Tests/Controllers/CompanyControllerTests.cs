@@ -24,7 +24,6 @@ namespace VehicleApplicationBackend.Tests.Controllers
                         new Company { Id = 2, City = "Örebro", Name = "MyNotSoCoolCompany", PostalCode = 22222, Street = "MyNotSoCoolStreet" }
                     });
             var mockLogger = new Mock<ILogger<CompanyController>>();
-            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
             var controller = new CompanyController(mockService.Object, mockLogger.Object);
 
             var result = controller.Companies();

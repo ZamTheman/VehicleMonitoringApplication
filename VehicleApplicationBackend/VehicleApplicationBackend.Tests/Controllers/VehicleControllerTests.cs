@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
 using Moq;
-using System;
 using System.Collections.Generic;
 using VehicleApplicationBackend.Services;
-using VehicleApplicationBackend.Dto;
 using VehicleApplicationBackend.Controllers;
 using Microsoft.Extensions.Logging;
+using VehicleApplicationBackend.ResponseObjects;
 
 namespace VehicleApplicationBackend.Tests.Controlllers
 {
@@ -19,13 +18,12 @@ namespace VehicleApplicationBackend.Tests.Controlllers
             mockService
                 .Setup(service => service.GetAllVehicles())
                 .Returns(
-                    new List<Vehicle>
+                    new List<ResponseVehicle>
                     {
-                        new Vehicle { Vin = "MyVin1", RegistrationNumber = "MyReg1", CompanyId = 1, LastCommunicated = DateTime.Now },
-                        new Vehicle { Vin = "MyVin2", RegistrationNumber = "MyReg2", CompanyId = 2, LastCommunicated = DateTime.Now }
+                        new ResponseVehicle { Vin = "MyVin1", RegistrationNumber = "MyReg1", CompanyId = 1, LastCommunicated = 123456 },
+                        new ResponseVehicle { Vin = "MyVin2", RegistrationNumber = "MyReg2", CompanyId = 2, LastCommunicated = 567890 }
                     });
             var mockLogger = new Mock<ILogger<CompanyController>>();
-            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
             var controller = new VehicleController(mockService.Object, mockLogger.Object);
 
             var result = controller.Vehicles();
@@ -34,7 +32,6 @@ namespace VehicleApplicationBackend.Tests.Controlllers
             Assert.AreEqual("MyVin1", result[0].Vin);
             Assert.AreEqual("MyReg1", result[0].RegistrationNumber);
             Assert.AreEqual(1, result[0].CompanyId);
-            Assert.IsTrue(result[0].LastCommunicated < DateTime.Now);
         }
 
         [Test]
@@ -44,7 +41,6 @@ namespace VehicleApplicationBackend.Tests.Controlllers
             mockService
                 .Setup(service => service.UpdateVehicleConnectionStatusByVin("TestVin"));
             var mockLogger = new Mock<ILogger<CompanyController>>();
-            mockLogger.Setup(logger => logger.LogInformation(string.Empty));
             var controller = new VehicleController(mockService.Object, mockLogger.Object);
 
             controller.Vehicles("TestVin");

@@ -14,8 +14,8 @@ namespace VehicleApplicationBackend.Tests.Services
         [Test]
         public void GetAllVehicles_ReturnsListOfVehicles()
         {
-            var mockService = new Mock<IVehicleRepository>();
-            mockService
+            var mockRepo = new Mock<IVehicleRepository>();
+            mockRepo
                 .Setup(repo => repo.GetAllVehicles())
                 .Returns(
                     new List<Vehicle>
@@ -23,7 +23,7 @@ namespace VehicleApplicationBackend.Tests.Services
                         new Vehicle { Vin = "MyVin1", RegistrationNumber = "MyReg1", CompanyId = 1, LastCommunicated = DateTime.Now },
                         new Vehicle { Vin = "MyVin2", RegistrationNumber = "MyReg2", CompanyId = 2, LastCommunicated = DateTime.Now }
                     });
-            var service = new VehicleService(mockService.Object);
+            var service = new VehicleService(mockRepo.Object);
 
             var result = service.GetAllVehicles();
 
@@ -31,7 +31,6 @@ namespace VehicleApplicationBackend.Tests.Services
             Assert.AreEqual("MyVin1", result[0].Vin);
             Assert.AreEqual("MyReg1", result[0].RegistrationNumber);
             Assert.AreEqual(1, result[0].CompanyId);
-            Assert.IsTrue(result[0].LastCommunicated < DateTime.Now);
         }
 
         [Test]
